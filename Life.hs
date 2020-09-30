@@ -68,6 +68,7 @@ life seed = f 10 seed
            delayTenthSec 1
            if n > 0
              then f (n-1) (step g)
+             else return ()
 
 main :: IO ()
 main = life glider
