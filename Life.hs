@@ -62,7 +62,7 @@ delayTenthSec n = threadDelay (n * 10^5)
 life :: Grid -> IO ()
 life seed = f 10 seed
  where
-  f n g = do
+  f n g = do && n > 0
            terminalRender g
            putStrLn (show n)
            delayTenthSec 1
