@@ -62,11 +62,12 @@ delayTenthSec n = threadDelay (n * 10^5)
 life :: Grid -> IO ()
 life seed = f 10 seed
  where
-  f n g = do && n > 0
+  f n g = do
            terminalRender g
            putStrLn (show n)
            delayTenthSec 1
-           f (n-1) (step g)
+           if n > 0
+             then f (n-1) (step g)
 
 main :: IO ()
 main = life glider
